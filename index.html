@@ -63,7 +63,7 @@
 
     <section class="g-section g-is-style-white g-pt-5" id="g-bottom-animation" data-g-animation-delay="1500"
       data-g-animation-step-duration="1000"
-      data-g-image-paths='["https://2.gravatar.com/avatar/c1e06475bf3496e81c1925d90d7c890a?s=360","https://0.gravatar.com/avatar/4e8763cd343611171849e8f27d0132a3?s=360","https://0.gravatar.com/avatar/5dbdc3f7ce1095dddac315d4956af900?s=360","https://1.gravatar.com/avatar/be8819126bd50fa16210bc5dd249beb2?s=360"]'>
+      data-g-image-paths='["https://gravatar.cn/avatar/c1e06475bf3496e81c1925d90d7c890a?s=360","https://gravatar.cn/avatar/4e8763cd343611171849e8f27d0132a3?s=360","https://gravatar.cn/avatar/5dbdc3f7ce1095dddac315d4956af900?s=360","https://gravatar.cn/avatar/be8819126bd50fa16210bc5dd249beb2?s=360"]'>
       <div class="g-wrapper g-wrapper--has-content g-pt-8 g-has-text-align-center@M">
         <div class="g-js-animation-trigger">
           <div role="presentation" aria-hidden="true">
@@ -78,7 +78,7 @@
             <h1 class="g-brand g-has-large-font-size">一个头像， 一切无处不在。</h1>
             <div class="g-button-group">
               <input type="email" class="g-button g-button--is-outline g-has-chevron" placeholder="请输入邮箱获取头像地址"
-                onblur="getGravatarURL(this.value)">
+                onblur="getGravatarURL(this.value)" onkeydown="enterKey(this.value)">
             </div>
           </div>
           <footer
@@ -220,6 +220,13 @@ function getGravatarURL( email ) {
         setTimeout(() => {
           that.innerHTML = '点击复制'
         }, 1000)
+      }
+
+      function enterKey(email) {       
+        const event = arguments.callee.caller.arguments[0] || window.event;
+        if (event.keyCode === 13) {
+          getGravatarURL(email)
+        }
       }
     </script>
 </body>
